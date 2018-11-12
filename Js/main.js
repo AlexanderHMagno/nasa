@@ -16,8 +16,8 @@ $(".next_picture").on("click",function(){
 
 
 
-    $(".apod_picture").html("");
-    $(".fullPhoto").html("");
+    $(".SinglePhoto>p").html("");
+    $(".fullPhoto").html("").hide();
     $(".title").html("");
     $(".explanation").html("");
     
@@ -27,8 +27,12 @@ $(".next_picture").on("click",function(){
     $("body").scrollTop(0,0);
 });
 
-    
+$(".SinglePhoto").on("click", function(){
 
+$(".fullPhoto").toggle("slow");
+
+});
+    
 function obtain_data(){
    
    let url = "https://api.nasa.gov/planetary/apod";
@@ -42,7 +46,7 @@ function obtain_data(){
     }).done(function(result) {
      
 $(".fullPhoto").append("<img src="+result.url+">");
-$(".apod_picture")
+$(".SinglePhoto")
       .css({"background-image":"url("+ result.url+")"})
       .append("<p>"+result.copyright+"</p>");
 
@@ -55,5 +59,7 @@ $(".explanation").append("<p>"+result.explanation+"</p>")
     });
 
 };
+
+
 
 });
