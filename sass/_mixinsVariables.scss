@@ -1,0 +1,10 @@
+$base-text: 16px;
+$desktop-width: 800px;
+
+
+
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}

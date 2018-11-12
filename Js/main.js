@@ -17,19 +17,23 @@ $(".next_picture").on("click",function(){
 
 
     $(".SinglePhoto>p").html("");
-    $(".fullPhoto").html("").hide();
+    $(".fullPhoto").html("");
     $(".title").html("");
     $(".explanation").html("");
     
-   
-    obtain_data();
+     obtain_data();
     
     $("body").scrollTop(0,0);
+
 });
 
 $(".SinglePhoto").on("click", function(){
 
-$(".fullPhoto").toggle("slow");
+$(".fullPhoto>img").toggle("slow");
+$('html,body').animate({
+  scrollTop: $(".fullPhoto>img").offset().top},
+  750);  
+    
 
 });
     
