@@ -8,18 +8,13 @@ obtain_data();
 
 $(".next_picture").on("click",function(){
 
-    $('html,body').animate({
-        scrollTop: $('.fullPhoto').offset().top},
-        750);  
-
-
     d.setDate(d.getDate() - 1);
     
     
     
     strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + (d.getDate());
 
-         
+
 
     $(".apod_picture").html("");
     $(".fullPhoto").html("");
@@ -28,9 +23,8 @@ $(".next_picture").on("click",function(){
     
    
     obtain_data();
-
-   
     
+    $("body").scrollTop(0,0);
 });
 
     
