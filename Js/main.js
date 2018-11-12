@@ -6,7 +6,7 @@ let strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + (d.getDate());
 obtain_data();
 
 
-$(".before_picture").on("click",function(){
+$(".next_picture").on("click",function(){
 
     d.setDate(d.getDate() - 1);
     
@@ -15,22 +15,15 @@ $(".before_picture").on("click",function(){
     strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + (d.getDate());
 
 
-    if((d.getDate()-1)===0){
-     day_before = d.getDate()
-    }else{
-     day_before = (d.getDate()-1)
-    }
-
-    beforeDate=d.getFullYear() + "-" + (d.getMonth()+1) + "-" + day_before;
- 
 
     $(".apod_picture").html("");
+    $(".fullPhoto").html("");
     $(".title").html("");
     $(".explanation").html("");
-    $(".next_picture>p").html("");
+    
    
     obtain_data();
-    obtain_before();
+    
 });
 
     
@@ -47,7 +40,7 @@ function obtain_data(){
       method: 'GET',
     }).done(function(result) {
      
-
+$(".fullPhoto").append("<img src="+result.url+">");
 $(".apod_picture")
       .css({"background-image":"url("+ result.url+")"})
       .append("<p>"+result.copyright+"</p>");
@@ -62,26 +55,4 @@ $(".explanation").append("<p>"+result.explanation+"</p>")
 
 };
 
-
-function obtain_before(){
-   
-    let url = "https://api.nasa.gov/planetary/apod";
-     url += '?' + $.param({
-     'date': beforeDate,
-       'api_key': "V6Z483OMQAniBX56p4mRyQSPEXdl09zSO2Rna86G"
-     });
-     $.ajax({
-       url: url,
-       method: 'GET',
-     }).done(function(result) {
-      
-  $(".next_picture")
-       .css({"background-image":"url("+ result.url+")"})
-       .append("<p>"+result.copyright+"</p>");
- 
-     }).fail(function(err) {
-       throw err;
-     });
- 
- };
 });
