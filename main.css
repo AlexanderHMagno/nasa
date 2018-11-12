@@ -2,10 +2,13 @@ body{
     background:black;
     color:white;
     font-size: 16px;
-    line-height: 25px;
+    line-height: 35px;
     font-family: 'Fjalla One', sans-serif;
 }
 
+h1,h2{
+    line-height: normal;
+}
 h2, button{
 
     font-size:2rem;
@@ -21,7 +24,7 @@ header{
     align-items: center;
     padding: 20px;
     font-size:3rem;
-    height: 100px;
+    height: 150px;
 }
 .apod_picture{
     position: relative;
