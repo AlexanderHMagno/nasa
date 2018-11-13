@@ -121,7 +121,7 @@ header {
     color: rgba(255, 255, 0, 0.678); }
   @media (min-width: 800px) {
     .singlePhoto {
-      height: 450px;
+      height: 470px;
       background-size: cover; } }
 
 .grid-container {
